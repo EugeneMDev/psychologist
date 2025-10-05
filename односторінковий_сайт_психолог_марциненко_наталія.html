@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Психолог-консультант Марциненко Наталія</title>
+  <meta name="description" content="Психологічне консультування: індивідуальні сесії онлайн. Запити: життєві кризи, вигорання, стосунки, самооцінка, психосоматика, адаптація, стрес, особистісний розвиток." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --card:#ffffff;
+      --ink:#2f2a26;
+      --heading:#5b2c2c;
+      --muted:#6b7280;
+      --accent:#e07a5f;
+      --accent-2:#f4a261;
+      --line:#e8d5c4;
+      --chip:#faf3ec;
+      --ring: rgba(224,122,95,.25);
+      --radius:16px;
+      --space-1:8px; --space-2:12px; --space-3:16px; --space-4:24px; --space-5:32px; --space-6:48px; --space-7:64px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;line-height:1.6}
+    img{max-width:100%;display:block}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Layout */
+    .container{max-width:1120px;margin-inline:auto;padding-inline:var(--space-4)}
+    header{position:sticky;top:0;backdrop-filter:blur(8px);background:rgba(255,255,255,.95);border-bottom:1px solid var(--line);z-index:50}
+    .nav{height:64px;display:flex;align-items:center;justify-content:space-between;gap:var(--space-4)}
+    .nav a.logo{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:var(--heading);letter-spacing:.2px}
+    .nav ul{list-style:none;display:flex;flex-direction:row;align-items:center;justify-content:center; /* або flex-end, якщо треба притиснути вправо */gap:var(--space-4);margin:0;padding:0;flex-wrap:nowrap; /* не переносити пункти на новий рядок */}
+
+
+    /* Typography */
+    h1{font-size:42px;line-height:1.2;margin:var(--space-2) 0;color:var(--heading);letter-spacing:.2px}
+    h2{font-size:30px;line-height:1.25;margin:0 0 var(--space-2);color:var(--heading);letter-spacing:.2px}
+    .kicker{color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+    p.lead{font-size:18px;color:var(--muted);max-width:65ch}
+    .muted{color:var(--muted)}
+
+    /* Components */
+    .btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 var(--space-4);border-radius:12px;background:var(--accent);color:#fff;font-weight:700;border:1px solid transparent;box-shadow:0 6px 18px -6px var(--ring);transition:transform .05s ease}
+    .btn:hover{background:var(--accent-2)}
+    .btn:active{transform:translateY(1px)}
+    .btn.outline{background:transparent;color:var(--accent);border-color:var(--accent)}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--chip);font-size:14px}
+
+    .card{background:var(--card);border:1px solid var(--line);box-shadow:0 8px 28px -14px rgba(0,0,0,.12);border-radius:var(--radius)}
+
+    .grid{display:grid;gap:var(--space-4)}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+
+    section{padding-block:var(--space-6)}
+    .section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:var(--space-4)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-5);align-items:center;min-height:520px;position:relative}
+    .hero-bg{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:100vw;border-radius:0;overflow:hidden}
+    .hero-bg::before{content:"";position:absolute;inset:0;background:url('./psychologist_Наталія_Марциненко.png') center/cover no-repeat;filter:contrast(1) saturate(1) brightness(.95)}
+    .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.70),rgba(255,255,255,.55))}
+    .hero-box{position:relative;max-width:640px;background:rgba(255,255,255,.85);border:1px solid var(--line);backdrop-filter:blur(6px);border-radius:var(--radius);padding:var(--space-5);box-shadow:0 10px 30px -15px rgba(0,0,0,.2)}
+
+    /* Lists/Cards */
+    .list{display:grid;gap:var(--space-3)}
+    .list .item{padding:var(--space-3);border-radius:12px;border:1px solid var(--line);background:#fff}
+
+    /* Table-like pricing */
+    .table{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+    .row{display:grid;grid-template-columns:1.6fr .6fr .6fr .6fr;align-items:center}
+    .row + .row{border-top:1px solid var(--line)}
+    .cell{padding:var(--space-4)}
+    .cell .title{font-weight:700}
+    .cell .sub{font-size:14px;color:var(--muted)}
+    .icon{width:34px;height:34px;border-radius:10px;background:var(--chip);display:inline-flex;align-items:center;justify-content:center;margin-right:10px}
+
+    /* Media */
+    .photo{border-radius:12px;object-fit:cover;aspect-ratio:4/3}
+
+    /* Forms */
+    form{display:grid;gap:var(--space-3)}
+    .field{display:grid;gap:6px}
+    input,select,textarea{background:#fff;border:1px solid var(--line);color:var(--ink);padding:12px 14px;border-radius:12px;outline:none}
+    input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+
+    footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+
+    /* Responsive */
+    @media (max-width:1024px){.grid.cols-3{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr;min-height:auto}.hero-box{margin:var(--space-5) 0 0 var(--space-5)}}
+    @media (max-width:640px){.nav{height:auto;padding-block:var(--space-3);flex-wrap:wrap}.nav ul{gap:var(--space-3);flex-wrap:wrap}.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}.row{grid-template-columns:1fr}.hero-box{padding:var(--space-4);margin-left:0}}  .topic{transition:box-shadow .15s ease, transform .06s ease}
+    .topic:hover{box-shadow:0 10px 26px -16px rgba(0,0,0,.16);transform:translateY(-1px)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+<a class="logo" href="#top">
+  <span style="display:inline-flex;align-items:center;gap:10px">
+    <img src="logo.webp" alt="Логотип — Психолог-консультант Марциненко Наталія" style="height:40px;display:block">
+    <strong>Психолог-консультант Марциненко Наталія</strong>
+  </span>
+</a>
+      <ul>
+        <li><a href="#about">Про мене</a></li>
+        <li><a href="#topics">Запити</a></li>
+        <li><a href="#methods">Методи</a></li>
+        <li><a href="#services">Послуги</a></li>
+        <li><a href="#pricing">Ціни</a></li>
+        <li><a href="#contact" class="btn">Записатися</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-box">
+        <span class="badge">Психологічна консультація</span>
+        <h1>Ви можете покластися на мене в складній життєвій ситуації</h1>
+        <p class="lead">Бережний простір для відвертої розмови й пошуку внутрішньої опори. Працюю еклектично, фокус на ваші потреби та реальні зміни.</p>
+        <div style="display:flex;gap:var(--space-3);margin-top:var(--space-3)">
+          <a class="btn" href="tel:+380972440909">Зателефонувати</a>
+          <a class="btn" href="#contact">Забронювати час</a>
+        </div>
+        <p class="muted" style="margin-top:var(--space-2)">Телефон: <a href="tel:+380972440909">+38 097 244 09 09</a></p>
+      </div>
+      <div class="card" style="padding:var(--space-3)">
+        <img class="photo" alt="Психологічна консультація" src="/mnt/data/A_photograph_captures_a_female_therapist_with_shou.png" />
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-head"><h2>Про мене</h2></div>
+      <div class="grid cols-2" style="align-items:stretch">
+        <div class="card" style="padding:var(--space-4)">
+          <p>Я Наталія. На наших зустрічах можна говорити відверто й без страху осудження. Підтримую тих, хто шукає змін і готовий зазирнути всередину себе, щоб узяти відповідальність за своє життя.</p>
+          <p>До мене звертаються, коли:</p>
+          <ul class="list" style="margin:0">
+            <li>важко відчути власну цінність;</li>
+            <li>здається, що себе загубив(ла) у стосунках;</li>
+            <li>складно приймати рішення;</li>
+            <li>бракує внутрішньої опори;</li>
+            <li>у стосунках немає гармонії чи відчувається токсичність;</li>
+            <li>виникають сумніви у виборі життєвого шляху;</li>
+            <li>виснажує критика — зовнішня або внутрішня;</li>
+            <li>хочеться нарешті відчути власну справжню цінність.</li>
+          </ul>
+          <p>Разом ми досліджуємо ваш внутрішній світ і шукаємо шляхи змін, які ви робитимете для себе.</p>
+          <p>Якщо ви готові поговорити про себе та свої зміни, напишіть мені або запишіться на зустріч — я поруч і готова підтримати.</p>
+        </div>
+        <div class="card" style="padding:var(--space-4);height:100%;display:grid;grid-template-rows:1fr auto;gap:var(--space-4)">
+          <!-- Фото над блоком "Формати роботи" -->
+          <div aria-hidden="true" style="border-radius:12px;overflow:hidden">
+            <img alt="Фото психолога" src="./Психолог-консультант_Марциненко_Наталія.jpeg" style="display:block;width:100%;height:100%;object-fit:cover">
+          </div>
+
+          <!-- Контент "Формати роботи" -->
+          <div>
+            <h3 class="kicker">Формати роботи</h3>
+            <ul class="list" style="list-style:none;margin:0;padding-left:0">
+              <li class="item">Індивідуальні онлайн-сесії, 50 хв</li>
+              <li class="item">Короткостроковий супровід (до 10 сесій)</li>
+              <li class="item">Кризова телефонна розмова (до 30 хв)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topics">
+      <div class="section-head" style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;">
+        <h2 style="margin:0;">Запити, з якими працюю</h2>
+        <span class="muted" style="margin:0;">Життєві ситуації, у яких допоможу знайти рішення</span>
+      </div>
+      <div class="grid cols-3">
+        <div class="card topic" style="padding:var(--space-4);display:flex;flex-direction:column;gap:8px"><strong>Життєві кризи</strong><span class="muted">Підтримка у змінах, стресостійкість</span></div>
+        <div class="card topic" style="padding:var(--space-4);display:flex;flex-direction:column;gap:8px"><strong>Емоційне вигорання</strong><span class="muted">Відновлення ресурсу, самодопомога</span></div>
+        <div class="card topic" style="padding:var(--space-4);display:flex;flex-direction:column;gap:8px"><strong>Сепарація / співзалежність</strong><span class="muted">Здорові межі у стосунках</span></div>
+        <div class="card topic" style="padding:var(--space-4);display:flex;flex-direction:column;gap:8px"><strong>Впевненість у собі</strong><span class="muted">Самооцінка, самоприйняття</span></div>
+        <div class="card topic" style="padding:var(--space-4);display:flex;flex-direction:column;gap:8px"><strong>Проблеми у стосунках</strong><span class="muted">Комунікація та подолання конфліктів</span></div>
+        <div class="card topic" style="padding:var(--space-4);display:flex;flex-direction:column;gap:8px"><strong>Самооцінка і самовизначення</strong><span class="muted">Цілі, цінності, вибір</span></div>
+        <div class="card topic" style="padding:var(--space-4);display:flex;flex-direction:column;gap:8px"><strong>Психосоматика</strong><span class="muted">М'які інструменти саморегуляції</span></div>
+        <div class="card topic" style="padding:var(--space-4);display:flex;flex-direction:column;gap:8px"><strong>Адаптація</strong><span class="muted">Входження у нові обставини</span></div>
+        <div class="card topic" style="padding:var(--space-4);display:flex;flex-direction:column;gap:8px"><strong>Стрес</strong><span class="muted">Відновлення спокою</span></div>
+        <div class="card topic" style="padding:var(--space-4);display:flex;flex-direction:column;gap:8px"><strong>Особистісний розвиток</strong><span class="muted">Самопізнання, розкриття потенціалу</span></div>
+      </div>
+    </section>
+
+    <section id="methods">
+      <div class="section-head" style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;">
+        <h2 style="margin:0;">Еклектичний підхід</h2>
+        <span class="muted" style="margin:0;">Комбіную методи під ваш запит</span>
+      </div>
+      <div class="card" style="padding:var(--space-4)">
+        <div class="grid cols-3" style="align-items:start">
+          <div class="method-chip" style="padding:10px 12px;border:1px solid var(--line);border-radius:999px;display:inline-block;background:var(--chip)">Клієнт-центрований підхід</div>
+          <div class="method-chip" style="padding:10px 12px;border:1px solid var(--line);border-radius:999px;display:inline-block;background:var(--chip)">Гештальт-підхід</div>
+          <div class="method-chip" style="padding:10px 12px;border:1px solid var(--line);border-radius:999px;display:inline-block;background:var(--chip)">КПТ</div>
+          <div class="method-chip" style="padding:10px 12px;border:1px solid var(--line);border-radius:999px;display:inline-block;background:var(--chip)">Екзистенційна психологія</div>
+          <div class="method-chip" style="padding:10px 12px;border:1px solid var(--line);border-radius:999px;display:inline-block;background:var(--chip)">Транзактний аналіз</div>
+          <div class="method-chip" style="padding:10px 12px;border:1px solid var(--line);border-radius:999px;display:inline-block;background:var(--chip)">Психоаналіз</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-head" style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;">
+        <h2 style="margin:0;">Послуги</h2>
+        <span class="muted" style="margin:0;">Компетентна підтримка та доступні інструменти</span>
+      </div>
+      <div class="grid cols-2">
+        <div class="card" style="padding:var(--space-4)">
+          <h3>Психологічне консультування</h3>
+          <p class="muted">Робота з особистісними та міжособистісними труднощами, план дій і підтримка змін.</p>
+          <a class="btn" href="#contact">Записатися</a>
+        </div>
+        <div class="card" style="padding:var(--space-4)">
+          <h3>Психодіагностика</h3>
+          <p class="muted">Розуміння причин складнощів і підбір ефективних кроків розвитку.</p>
+          <a class="btn outline" href="#contact">Дізнатись більше</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="section-head" style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;">
+        <h2 style="margin:0;">Вартість послуг</h2>
+        <span class="muted" style="margin:0;">Короткострокове консультування: до 10 сесій</span>
+      </div>
+      <div class="table">
+        <div class="row">
+          <div class="cell">
+            <span class="icon">💬</span><span class="title">Перша консультація</span><div class="sub">Онлайн, до 30 хв</div>
+          </div>
+          <div class="cell muted">до 30 хв</div>
+          <div class="cell price">Безкоштовно</div>
+          <div class="cell" style="text-align:right"><a class="btn outline" href="#contact">Записатися</a></div>
+        </div>
+        <div class="row">
+          <div class="cell">
+            <span class="icon">🧠</span><span class="title">Повна консультація</span><div class="sub">Онлайн, 50 хв</div>
+          </div>
+          <div class="cell muted">50 хв</div>
+          <div class="cell price">1000 грн</div>
+          <div class="cell" style="text-align:right"><a class="btn" href="#contact">Записатися</a></div>
+        </div>
+        <div class="row">
+          <div class="cell">
+            <span class="icon">📞</span><span class="title">Кризова розмова</span><div class="sub">Телефон, до 30 хв</div>
+          </div>
+          <div class="cell muted">до 30 хв</div>
+          <div class="cell price">600 грн</div>
+          <div class="cell" style="text-align:right"><a class="btn outline" href="tel:+380972440909">Зателефонувати</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head" style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;">
+        <h2 style="margin:0;">Готові працювати над собою? Звертайтесь</h2>
+        <span class="muted" style="margin:0;">Після заявки узгодимо зручний час зустрічі</span>
+      </div>
+      <div class="grid cols-2">
+        <form
+            class="card"
+            style="padding:var(--space-4)"
+            action="https://formspree.io/f/mdkwdgwv"
+            method="POST"
+          >
+            <div class="field">
+              <label for="topic">Ваш запит</label>
+              <select id="topic" name="topic" required>
+                <option value="">Оберіть…</option>
+                <option value="Життєві кризи">Життєві кризи</option>
+                <option value="Емоційне вигорання">Емоційне вигорання</option>
+                <option value="Сепарація / співзалежність">Сепарація / співзалежність</option>
+                <option value="Впевненість у собі">Впевненість у собі</option>
+                <option value="Проблеми у стосунках">Проблеми у стосунках</option>
+                <option value="Самооцінка / самовизначення">Самооцінка / самовизначення</option>
+                <option value="Психосоматика">Психосоматика</option>
+                <option value="Адаптація">Адаптація</option>
+                <option value="Стрес">Стрес</option>
+                <option value="Особистісний розвиток">Особистісний розвиток</option>
+                <option value="Інше">Інше</option>
+              </select>
+            </div>
+
+            <div class="grid cols-2">
+              <div class="field">
+                <label for="name">Ім'я</label>
+                <input id="name" name="name" required placeholder="Ваше ім'я" />
+              </div>
+              <div class="field">
+                <label for="phone">Телефон</label>
+                <input id="phone" name="phone" required placeholder="+38 ___ ___ __ __" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="name@example.com" />
+            </div>
+
+            <div class="field">
+              <label for="msg">Коротко опишіть запит</label>
+              <textarea id="msg" name="message" rows="4"></textarea>
+            </div>
+
+            <!-- honeypot для спаму (невидиме поле): -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <!-- опціонально тема листа у пошті -->
+            <input type="hidden" name="_subject" value="Заявка з сайту: консультація" />
+
+            <button class="btn" type="submit">Надіслати запит</button>
+          </form>
+
+        <div class="card" style="padding:var(--space-4)">
+          <h3 class="kicker">Контакти</h3>
+          <p><strong>Телефон:</strong> <a href="tel:+380972440909">+38 097 244 09 09</a></p>
+          <p><strong>Графік:</strong> за попереднім записом, онлайн</p>
+          <p class="muted">Звернення, надіслані через форму, опрацьовуються у робочий час. Відповідь надходить упродовж робочого дня.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="y"></span> Психолог-консультант Марциненко Наталія
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
