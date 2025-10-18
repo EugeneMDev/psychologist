@@ -358,7 +358,16 @@
               </div>
               <div class="field">
                 <label for="phone">Телефон</label>
-                <input id="phone" name="phone" required placeholder="+38 ___ ___ __ __" />
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  placeholder="+38 097 244 09 09"
+                  pattern="^\+?3?8?0\s?(\d{2})\s?\d{3}[\s-]?\d{2}[\s-]?\d{2}$"
+                  title="Введіть український номер телефону, наприклад +38 097 244 09 09"
+                />
+
               </div>
             </div>
 
