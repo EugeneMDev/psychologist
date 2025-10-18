@@ -95,10 +95,11 @@
     /* Responsive */
     @media (max-width:1024px){.grid.cols-3{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr;min-height:auto}.hero-box{margin:var(--space-5) 0 0 var(--space-5)}}
     @media (max-width:640px){.nav{height:auto;padding-block:var(--space-3);flex-wrap:wrap}.nav ul{gap:var(--space-3);flex-wrap:wrap}.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}.row{grid-template-columns:1fr}.hero-box{padding:var(--space-4);margin-left:0}}  .topic{transition:box-shadow .15s ease, transform .06s ease}
-    .topic:hover{box-shadow:0 10px 26px -16px rgba(0,0,0,.16);transform:translateY(-1px)}
-        .table .btn {
-      min-width: 140px; 
+    .table .cell .btn {
+      min-width: 140px !important; /* однакова ширина для всіх */
       text-align: center;
+      display: inline-flex;
+      justify-content: center;
     }
   </style>
   <!-- Favicon -->
