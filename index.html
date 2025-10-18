@@ -157,6 +157,28 @@
   </script>
 
 </head>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector('form[action^="https://formspree.io/"]');
+  const phoneInput = document.getElementById("phone");
+  
+  if (form && phoneInput) {
+    form.addEventListener("submit", (e) => {
+      const phoneValue = phoneInput.value.trim();
+      const pattern = /^\+?3?8?0\s?\d{2}\s?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/;
+
+      if (!pattern.test(phoneValue)) {
+        e.preventDefault();
+        phoneInput.reportValidity(); // показує стандартне повідомлення браузера
+        phoneInput.setCustomValidity("Будь ласка, введіть номер у форматі +38 097 244 09 09");
+      } else {
+        phoneInput.setCustomValidity("");
+      }
+    });
+  }
+});
+</script>
+
 <body>
   <header>
     <div class="container nav">
