@@ -95,11 +95,23 @@
     /* Responsive */
     @media (max-width:1024px){.grid.cols-3{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr;min-height:auto}.hero-box{margin:var(--space-5) 0 0 var(--space-5)}}
     @media (max-width:640px){.nav{height:auto;padding-block:var(--space-3);flex-wrap:wrap}.nav ul{gap:var(--space-3);flex-wrap:wrap}.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}.row{grid-template-columns:1fr}.hero-box{padding:var(--space-4);margin-left:0}}  .topic{transition:box-shadow .15s ease, transform .06s ease}
+  /* === FIX: вирівнювання кнопок у таблиці === */
     .table .cell .btn {
-      min-width: 140px !important; /* однакова ширина для всіх */
-      text-align: center;
       display: inline-flex;
       justify-content: center;
+      align-items: center;
+      min-width: 160px;       /* однакова ширина */
+      white-space: nowrap;    /* не переносити текст */
+      text-align: center;
+    }
+
+    .table .row {
+      grid-template-columns: 1.6fr .6fr .6fr minmax(160px, .7fr); /* остання колонка розширюється */
+      align-items: center;
+    }
+
+    .table .cell:last-child {
+      text-align: right;
     }
   </style>
   <!-- Favicon -->
